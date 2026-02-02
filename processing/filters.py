@@ -48,6 +48,31 @@ def median_filter(image: np.ndarray, k: int = 3)-> np.ndarray:
 
 
 
+def apply_filter(image: np.ndarray, filter : str, k : int = 5 , sigma: float = 1.0 )-> np.ndarray:
+    if image is None:
+        raise ValueError("Input image is None")
+    
+    if not isinstance(filter, str):
+        raise TypeError("Filter type must be a string")
+    
+    name = filter.strip().lower()
+
+    if name == "mean":
+        return mean_filter(image, k=k)
+    
+    elif name == "gaussian":
+        return gaussian_filter(image, k=k, sigma=sigma)
+    
+
+    elif name == "median":
+        return median_filter(image, k=k)
+    
+    
+    
+
+  
+        
+
         
     
 
