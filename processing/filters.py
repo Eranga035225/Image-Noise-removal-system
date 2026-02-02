@@ -25,7 +25,20 @@ def mean_filter(image: np.ndarray, k: int = 3)-> np.ndarray:
     k = _validate_kernel_size(k)
     return cv2.blur(image, (k,k))
 
+
+def gaussian_filter(image: np.ndarray, k: int = 5, sigma: float = 1.0)-> np.ndarray:
+    k = _validate_kernel_size(k)
+
+    if not isinstance(sigma, (int,float)):
+        raise TypeError("Sigma must be a number")
     
+    if sigma <= 0 :
+        raise ValueError("Sigma must be positive")
+    
+    return cv2.GaussianBlur(image, (k,k), sigmaX=float(sigma), sigmaY=float(sigma))
+    
+
+
 
 
         
