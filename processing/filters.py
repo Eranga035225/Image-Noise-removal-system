@@ -19,6 +19,12 @@ def _validate_kernel_size(k: int) -> int:
     return k
 
 
+
+
+def mean_filter(image: np.ndarray, k: int = 3)-> np.ndarray:
+    k = _validate_kernel_size(k)
+    return cv2.blur(image, (k,k))
+
     
 
 
