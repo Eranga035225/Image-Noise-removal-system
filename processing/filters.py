@@ -39,6 +39,13 @@ def gaussian_filter(image: np.ndarray, k: int = 5, sigma: float = 1.0)-> np.ndar
     
 
 
+def median_filter(image: np.ndarray, k: int = 3)-> np.ndarray:
+    k = _validate_kernel_size(k)
+    if k == 1 :
+        return image.copy()
+    
+    return cv2.medianBlur(image,k)
+
 
 
         
